@@ -1,0 +1,154 @@
+.fa-plus-square, .fa-minus-square{
+    color:#ffc107;
+    cursor:pointer;
+    z-index:98;
+    overflow:hidden;
+}
+
+.fa-plus-square:hover, .fa-minus-square:hover{
+  color: #e0aa35;
+}
+
+.cantidad{
+    font-size: 50px;
+    display: inline-block;
+}
+
+#btnver, #btncarro{
+    z-index:98;
+    color: #FFF;
+}
+
+.card-img-overlay{
+    height: 200px;
+}
+
+#btnver:hover{
+  cursor:pointer;
+}
+
+.my-pagination /deep/ .ngx-pagination .current {
+    background: #ffc107;
+}
+
+#toast{
+    visibility: hidden;
+    min-width: 250px;
+    margin-left: -125px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: fixed;
+    z-index: 1;
+    left: 50%;
+    bottom: 30px;
+    font-size: 17px;
+  }
+  
+  #toast.show{
+    visibility: visible;
+    -webkit-animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    animation: fadein 0.5s, fadeout 0.5s 2.5s;
+    z-index: 99;
+  }
+
+#toast-user{
+  min-width: 250px;
+  background-color: #333;
+  color: #fff;
+  text-align: center;
+  border-radius: 2px;
+  padding: 16px;
+  position: fixed;
+  z-index: 99;
+  bottom: 30px;
+  font-size: 17px;
+  margin:0 auto;
+  width: 400px;
+}
+
+
+
+.card-body{
+  background: #E9ECEF;
+}
+
+
+
+  
+  @-webkit-keyframes fadein {
+    from {bottom: 0; opacity: 0;} 
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @keyframes fadein {
+    from {bottom: 0; opacity: 0;}
+    to {bottom: 30px; opacity: 1;}
+  }
+  
+  @-webkit-keyframes fadeout {
+    from {bottom: 30px; opacity: 1;} 
+    to {bottom: 0; opacity: 0;}
+  }
+  
+  @keyframes fadeout {
+    from {bottom: 30px; opacity: 1;}
+    to {bottom: 0; opacity: 0;}
+  }
+
+  .circle{
+    border-radius: 50%;
+    width: 90px;
+    height: 75px;
+    background: white;
+    text-align: center;
+    text-shadow: 5px 5px 10px black;
+  }
+
+  .numbers{
+    text-shadow: white 3px 3px 1px;
+    color: #1F2627;
+    font-weight: bold;
+    font-size: 19px;
+    margin-left: 10px;
+    margin-right: 10px;
+  }
+
+  .selector{
+    margin-left: 15px;
+  }
+
+  .card-img-top{
+    height: 200px !important;
+    width: 300px  !important;
+    object-fit: cover;
+  }
+
+  .no-stock-background{
+    background: black;
+    height: 100%;
+    width: 100%;
+    z-index: 99;
+    position: absolute;
+    opacity: 0.5;
+  }
+
+  .no-stock-banner{
+    background: #C82333;
+    color: white;
+    text-align: center;
+    width: 100%;    
+    position: absolute;
+    z-index:999;
+    opacity: 0.8;
+    padding-top: 5px;
+    padding-bottom: 5px;
+  }
+
+  .btn{  
+    height:35px;
+    border-radius: 0px !important;
+}
+

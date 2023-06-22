@@ -1,0 +1,30 @@
+<h2 class="mt-3 mb-3">{{'gestion_stock.texto' | translate}}</h2>
+<hr>
+<table class="mb-4 mt-4 table table-responsive">
+  <tr class="bg-warning text-dark" style="text-align: center">
+    <th>
+      {{'producto.texto' | translate}}
+    </th>
+    <th>
+      {{'stock.texto' | translate}}
+    </th>
+    <th>
+      {{'actualizar_datos.texto' | translate}}
+    </th>
+  </tr>
+  <tr *ngFor="let product of products | async | paginate: {itemsPerPage: 9, currentPage: pageActual}"
+    style="text-align: center">
+    <td>
+      {{product.title}}
+    </td>
+    <td>
+      <input type="number" id="{{product.id}}_quantity" value="{{product.quantity}}">
+    </td>
+    <td>
+      <i style="cursor:pointer" (click)="updateStock(product.id)" class="far fa-save"></i>
+    </td>
+  </tr>
+</table>
+<pagination-controls style="float:right" class="mt-4 my-pagination" (pageChange)="pageActual = $event"
+  previousLabel="{{'anterior.texto' | translate}}" nextLabel="{{'siguiente.texto' | translate}}">
+</pagination-controls>

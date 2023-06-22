@@ -1,0 +1,23 @@
+<div class="d-flex justify-content-center mt-5 mb-5 container">
+
+  <form id="formulario_reset" [formGroup]="resetPassForm" (ngSubmit)="saveData()" novalidate>
+    <div class="form-group" style="display: inline-block; text-align: center">
+      <p>{{'instrucciones_reset_pass.texto' | translate}}</p>
+      <input type="email" style="margin: 0 auto" class="w-50 form-control" formControlName="email_reset"
+        placeholder="{{'email.texto' | translate}}">
+      <div *ngIf="resetPassForm.get('email_reset').errors && resetPassForm.get('email_reset').dirty"
+        class="mx-auto w-50 alert alert-danger">
+        <p *ngIf="resetPassForm.get('email_reset').hasError('required')">{{'email_obligatorio.texto' | translate}}</p>
+        <p *ngIf="resetPassForm.get('email_reset').hasError('email')">{{'no_mail_valido.texto' | translate}}</p>
+      </div>
+
+      <input type="submit" class="mb-5 mt-4 mx-auto w-fourtyfive fadeIn fourth btn btn-danger"
+        value="{{'enviar.texto' | translate}}" [disabled]="resetPassForm.invalid">
+    </div>
+  </form>
+  <ng-reset-pass-send-ok class="d-none" id="reset-pass-send-ok-block"></ng-reset-pass-send-ok>
+  <br>
+  <div id="toast">
+    {{'mail_no_usuario.texto' | translate}}&nbsp;<i class="fas fa-edit"></i>
+</div>
+</div>

@@ -1,0 +1,46 @@
+<div id="carouselExampleControls" class="bg-light carousel slide carousel-fade" data-ride="carousel">
+  <!-- Search form -->
+  <div style="width:250px;margin:0 auto" class="input-group d-flex justify-content-center md-form mt-0 mb-3">
+    <form [formGroup]="carouselForm" (ngSubmit)="saveData()" novalidate>
+      <div style="width:80%;float:left;">
+        <input id="text_search" formControlName="text_search" class="mt-4 form-control" type="text"
+          placeholder="{{'buscar.texto' | translate}}" aria-label="Search">
+      </div>
+      <div style="width:10%;float:left;">
+        <div class="input-group-append">
+          <button type="submit" id="btn-search" class="mt-4 btn btn-danger" [disabled]="carouselForm.invalid">
+            <i class='text-light fas fa-search'></i>
+          </button>
+        </div>
+      </div>
+    </form>
+  </div>
+
+
+  <div class="carousel-inner">.
+    <div class="carousel-item active">
+      <img class="d-block w-100" style="height:600px;display: table;
+        object-fit: cover;
+        object-position: top;" src="assets/img/head2.png" alt="Thirth slide">
+      <div class="carousel-caption">
+        <!-- aqui texto si se desea-->
+        <!-- aqui texto si se desea-->
+        <div id="div-gen-catalogo" class="col-md-10">
+          <div id="div-interior-catalogo" class="col-md-12">
+            <div id="div-title-catalogo" class="p-3 d-flex justify-content-center row">
+              <h1 id="title1catalogo">
+                {{'ya_puedes_descargar_catalogo.texto' | translate }}
+              </h1>
+              <h3 id="title2catalogo">
+                {{'a_que_esperas.texto' | translate }}
+              </h3>
+            </div>
+            <a href="assets/docs/Cataleg_MIM PATCHWORK.pdf" target="_blank"><input type="button" value="{{'descargar.texto' | translate | uppercase}}" id="btn-download-catalogo"
+              class="btn btn-danger"></a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+</div>

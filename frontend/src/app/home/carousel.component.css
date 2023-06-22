@@ -1,0 +1,111 @@
+@import url('https://fonts.googleapis.com/css?family=Yellowtail&display=swap');
+
+#link-home{
+    color: white;
+}
+
+#boton-comencar:hover #link-home{
+color: black;
+}
+
+.carousel-caption{
+    bottom: 0px !important;
+}
+
+#boton-comencar:hover{
+    color:black;
+    background:white;
+    cursor:pointer;
+}
+
+#boton-comencar{
+    /* border-left: solid 2px black; */
+    background:black;
+    color:white
+}
+
+
+#div-title{
+    border-bottom: solid 2px black;   
+}
+
+#div-title h2{
+    color:black;
+    font-size: 5vw;
+}
+
+#div-subg{
+    background:white;margin:0 auto;
+    border:solid black 3px;
+}
+#div-text h5{
+    color:black;
+}
+
+#title1catalogo{
+    color: #01141F;
+    font-size:60px;
+}
+
+#title2catalogo{
+    color:gray;
+    font-size:40px;
+}
+
+#div-gen{
+    opacity: 0.8;
+    margin:0 auto;
+    background:white;
+    margin-bottom: 70px;
+}
+
+#div-gen-catalogo{
+    opacity: 0.8;
+    margin:0 auto;
+    margin-bottom: 200px;
+}
+
+#btn-download-catalogo{
+    border-radius: 0px;
+}
+
+@media only screen and (max-width: 991px) {
+    #div-gen{
+        opacity: 0.8;
+        margin:0 auto;
+        background:white;
+        margin-bottom: 0px;
+    }
+
+    #div-gen-catalogo{
+        opacity: 0.8;
+        margin:0 auto;
+        margin-bottom: 50px;
+    }
+  }
+
+  textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color:#E53B42;
+  box-shadow: 0 1px 1px #E53B42 inset, 0 0 8px #E53B42;
+  outline: 0 none;
+}
+
+#text_search, #btn-search{
+    height:35px;
+    border-radius: 0px !important;
+}

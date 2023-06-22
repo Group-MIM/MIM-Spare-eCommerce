@@ -1,0 +1,60 @@
+<body>
+  <header class="clearfix">
+    <div id="logo">
+      <img src="assets/img/logo.png">
+    </div>
+    <h1>{{'factura.texto' | translate | uppercase}}: vo00{{invoice.id}}</h1>
+    <div id="company" class="clearfix">
+      <div>MIM Spare</div>
+      <div>CIF: B67220350</div>
+      <div>C/Serra 2, 08231 Ullastrell (Barcelona)</div>
+      <div>+34 97887392</div>
+      <div>info@mimspare.com</div>
+    </div>
+    <div id="project">
+      <div><span>{{'cliente.texto' | translate}}</span>{{invoice.nombre}}</div>
+      <div><span>{{'direccion.texto' | translate}}</span>{{invoice.direccion_alt}} {{invoice.codigo_postal_alt}}
+        {{invoice.municipio_alt}}
+        ({{invoice.provincia_alt}})</div>
+      <div><span>{{'email.texto' | translate}}</span>{{invoice.email}}</div>
+      <div><span>{{'telefono.texto' | translate}}</span>+{{invoice.telefono}}</div>
+      <div><span>{{'fecha.texto' | translate}}</span> {{invoice.updated_at | date}}</div>
+    </div>
+  </header>
+  <main>
+    <table>
+      <thead>
+        <tr>
+          <th class="desc">{{'producto.texto' | translate}}</th>
+          <th>{{'cantidad.texto' | translate}}</th>
+          <th>{{'precio.texto' | translate}}</th>
+          <th>{{'iva.texto' | translate}}</th>
+          <th>{{'total.texto' | translate}}</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class='desc' *ngFor="let order of orders">
+          <td>{{order[0]}}</td>
+          <td class='qty'>{{order[1]}}</td>
+          <td class='unit'>{{order[4]}}€</td>
+          <td class='iva'>{{order[3]}}%</td>
+          <td class='total'>{{order[1] * order[2] | number : '1.2-2'}}€</td>
+        </tr>
+        <tr>
+            <td colspan="4" class="notice">{{'envio.texto' | translate | uppercase }}</td>
+            <td class="total">{{invoice.precio_envio}}€</td>
+          </tr>
+        <tr>
+          <td colspan="4" class="grand total"><b>{{'total.texto' | translate | uppercase }}</b></td>
+          <td class="grand total"><b>{{(precio_total)}}</b>€</td>
+        </tr>
+      </tbody>
+    </table>
+   <!--<div id="notices">
+      <div>{{'nota.texto' | translate}}:</div>
+      <div class="notice">A finance charge of 1.5% will be made on unpaid balances after 30 days.</div>
+    </div>--> 
+  </main>
+  <footer>
+    {{'factura_pie.texto' | translate}} </footer>
+</body>

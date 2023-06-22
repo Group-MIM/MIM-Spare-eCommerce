@@ -1,0 +1,16 @@
+<div class="dropdown">
+    <button class="btn btn-danger dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown"
+      aria-haspopup="true" aria-expanded="false">
+      {{'ordenar.texto' | translate}}&nbsp;<i class="fas fa-sort"></i>
+    </button>
+    <!-- <ng-add-product-button></ng-add-product-button>  -->
+    <div class="dropdown-menu dropup" aria-labelledby="dropdownMenuButton">
+      <a class="background-light dropdown-item" (click)="sort('priceDesc')">{{'precio.texto' | translate}}&nbsp;<i
+          class="fas fa-sort-amount-down"></i></a>
+      <hr>
+      <a class="dropdown-item" (click)="sort('priceAsc')">{{'precio.texto' | translate}}&nbsp;<i
+          class="fas fa-sort-amount-up"></i></a>
+      <!-- <hr>
+      <a class="dropdown-item" (click)="sort('madeIn')">{{'origen.texto' | translate}}</a> -->
+    </div>
+  </div>

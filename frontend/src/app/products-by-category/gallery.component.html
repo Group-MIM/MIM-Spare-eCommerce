@@ -1,0 +1,72 @@
+<div (window:resize)="onResize($event)" class="contenedor_ficha card mt-4 mb-4">
+    <div *ngIf="product.quantity < 1">
+      <div class="no-stock-banner">
+        <span>{{'producto_agotado.texto' | translate}}</span>
+      </div>
+      <div class="no-stock-background"></div>
+    </div>
+  
+  
+    <div style="width: 100%">
+      <img src="{{product.imageLink}}" class="card-img-top" alt="...">
+  
+  
+    </div>
+    <div class="card-body">
+      <h6 class="card-title">{{product.title}}</h6>
+      <p class="card-text">{{product.price | currency:'EUR':'€':'1.2-2'}} <span style="font-size:11px"> {{product.medida}}</span></p>
+      <hr>
+      <p style="font-size:13px;">
+        <b>{{'categoria.texto' | translate}}:</b> {{product.category + '.texto' | translate}}<br>
+        <b>{{'origen.texto' | translate}}:</b> {{product.madeIn}}
+      </p>
+      <hr>
+      <div class="row">
+        <span class="selector d-flex align-items-center">
+  
+          <i (click)="quantity=quantity-1" class="fas fa-minus-square fa-3x"></i>
+  
+          <ng-container *ngIf="quantity>0; else elseTemplate">
+            <div class="numbers">
+              <span>{{quantity}}</span>
+            </div>
+          </ng-container>
+          <ng-template #elseTemplate>
+            <span class="numbers">{{quantityReset()}}</span>
+          </ng-template>
+  
+          <i (click)="addQuantity()" class="fas fa-plus-square fa-3x"></i>
+  
+        </span>
+      </div>
+      <hr>
+      <div class="row">
+        <a id="btnver" class="ml-3 btn btn-danger"
+        (click)="navigateTo('/product/', product.id)">{{'ver.texto' | translate}}<i class="ml-2 far fa-eye"></i></a>
+  
+  
+        <!-- <ng-container *ngIf="isLogin == true; else elseTemplateLogin"> -->
+          <button (click)="addProducts(quantity)"
+            class="ml-3 btn btn-danger btncarro">{{'anadir_carro.texto' | translate}}<i
+              class="ml-2 fas fa-cart-plus"></i>
+          </button>
+        <!-- </ng-container>
+        <ng-template #elseTemplateLogin>
+          <button (click)="toastNoLogin()" class="ml-3 btn btn-danger">{{'anadir_carro.texto' | translate}}<i
+              class="ml-2 fas fa-cart-plus"></i>
+          </button>
+        </ng-template>
+   -->
+      </div>
+  
+      <div style="text-shadow: none; font-weight: normal;" id="toast">
+        {{'anadido_carro.texto' | translate}}&nbsp;<i id="carrologo" class="fas fa-shopping-cart"></i>
+      </div>
+  
+     
+  
+    </div>
+  
+  </div>
+  
+  

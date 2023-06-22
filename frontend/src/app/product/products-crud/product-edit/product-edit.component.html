@@ -1,0 +1,132 @@
+<form class="container">
+    <div class="mt-5 row form-group">
+        <div class="col-md-5">
+            <div class="imagenFullDiv">
+                <img id="imageLink" class="imagenFull" src="{{product.imageLink}}" alt="">
+                <input id="fileupload" (change)="onFileChange($event)" class="form-control btn" type="file"
+                    accept="image/png, image/jpeg, image/gif" />
+            </div>
+        </div>
+        <div class="card col-md-7">
+            <div class="card-header row">
+                <div class="col-md-">
+                    <h3>{{'nombre_producto.texto' | translate}}:</h3>
+                    <h4>
+                        <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="product.title"
+                            class="p-2 form-control" value="{{product.title}}">
+                    </h4>
+                </div>
+                <div class="col-md-4">
+                    <h3>{{'codigo.texto' | translate}}:</h3>
+                    <h4>
+                        <input [ngModelOptions]="{standalone: true}" type="text" [(ngModel)]="product.codigo_articulo"
+                            class="p-2 form-control">
+                    </h4>
+                </div>
+
+            </div>
+            <div class="card-header row">
+                <div class="col-md-3">
+                    <h3>{{'precio.texto' | translate}} (€):</h3>
+                    <input (change)="calcularPrecio()" id="precio" type="text" [ngModelOptions]="{standalone: true}"
+                        [(ngModel)]="product.price_sin_iva" class="form-control">
+
+                </div>
+                <div class="col-md-6">
+                    <h3>{{'medida.texto' | translate}}:</h3>
+                    <div class="row">
+                        <div class="col-md-6">
+                            <input class="form-control" type="number" id="medida1" value="0">
+                        </div>
+                        <div class="col-md-6">
+                            <select id="medida2" class="form-control">
+                                <option value="p/u">p/u</option>
+                                <!-- <option value="gr">gr</option>
+                                <option value="kg">kg</option>
+                                <option value="cl">cl</option>
+                                <option value="l">l</option> -->
+                            </select>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="col-md-3">
+                    <h3>{{'iva.texto' | translate}} (%):</h3>
+                    <input (change)="calcularPrecio()" id="iva" type="text" [ngModelOptions]="{standalone: true}"
+                        [(ngModel)]="product.iva" class="form-control">
+
+                </div>
+
+            </div>
+            <div class="card-header row">
+                <div class="col-md-5">
+                    <h3>{{'prioridad_venta.texto' | translate}}:</h3>
+                    <select [ngModelOptions]="{standalone: true}" [(ngModel)]="product.priority" class="form-control">
+                        <option value="0">{{'selecciona.texto' | translate}}</option>
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                    </select>
+
+                </div>
+
+                <div class="col-md-3">
+                    <h3>{{'stock.texto' | translate}}:</h3>
+                    <input type="text" [ngModelOptions]="{standalone: true}" [(ngModel)]="product.quantity"
+                        class="form-control">
+
+                </div>
+                <div class="col-md-4">
+                    <h3>{{'precio_final.texto' | translate}}:</h3>
+                    <input id="precio_final" readonly type="text" [ngModelOptions]="{standalone: true}"
+                        [(ngModel)]="product.price" class="form-control">
+
+                </div>
+            </div>
+            <div class="card-header row">
+                <div class="col-md-6">
+                    <h3>{{'origen_actual.texto' | translate}}:</h3>
+                        <select  [ngModelOptions]="{standalone: true}" [(ngModel)]="product.madeIn" class="form-control">
+                            <option *ngFor="let country of countries" [selected]="product.madeIn == country.name" value="{{country.name}}">
+                                {{country.name}}</option>
+                        </select>
+
+                </div>
+                <div class="col-md-6">
+                    <h3>{{'categoria.texto' | translate}}:</h3>
+                    <select  [ngModelOptions]="{standalone: true}" [(ngModel)]="product.category" class="form-control">
+                        <option *ngFor="let category of categories" [selected]="product.category == category.name" value="{{category.name}}">
+                            {{category.name}}</option>
+                    </select>
+
+                </div>
+            </div>
+            <div class="card-header row">
+                <div class="col-md-12">
+                    <h3>{{'descripcion.texto' | translate}}:</h3>
+                    <textarea [ngModelOptions]="{standalone: true}" [(ngModel)]="product.description"
+                        class="form-control">{{product.description}}</textarea>
+                </div>
+            </div>
+            <div class="card-header row">
+                <div class="col-md-12">
+                    <h3>{{'ficha_tecnica.texto' | translate}}:</h3>
+                    <input id="fileupload_sheet" (change)="onSheetChange($event)" class="form-control btn" type="file"
+                        accept=".pdf, .doc, .docx, .xls, .xlsx" />
+                </div>
+            </div>
+            <button (click)="saveChanges()" class="mt-3 btn btn-danger">{{'guardar_cambios.texto' | translate}}</button>
+        </div>
+        <div id="toast">
+            {{'producto_editado.texto' | translate}}&nbsp;<i class="fas fa-edit"></i>
+        </div>
+        <div id="toast-limit">
+            <i class="fas fa-exclamation-triangle"></i>&nbsp;{{'limite_tamano_archivo.texto' | translate}}
+        </div>
+        <div id="toast-required">
+            <i class="fas fa-exclamation-triangle"></i>&nbsp;{{'rellena_todos_campos.texto' | translate}}
+        </div>
+    </div>
+</form>

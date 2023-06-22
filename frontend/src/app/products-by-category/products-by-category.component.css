@@ -1,0 +1,19 @@
+:host /deep/ .ngx-pagination .current { 
+    background: #212529 !important; 
+    color: #FFC23D;
+}
+
+#toast-user{
+    min-width: 250px;
+    background-color: #333;
+    color: #fff;
+    text-align: center;
+    border-radius: 2px;
+    padding: 16px;
+    position: sticky;
+    z-index: 99;
+    bottom: 30px;
+    font-size: 17px;
+    margin:0 auto;
+    width: 330px;
+  }

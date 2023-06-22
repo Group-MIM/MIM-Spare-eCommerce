@@ -1,0 +1,28 @@
+<!-- <h5>{{'origen.texto' | translate}}</h5>
+<div class="card-body">
+  <label *ngFor="let fOrigen of filtroOrigenRadio; let i=index" class="form-check">
+    <input name="forigen" type="checkbox" value="{{fOrigen}}" class="form-check-label forigen">
+    &nbsp;{{fOrigen}}
+  </label>
+</div>
+<hr> -->
+
+<h5>{{'precio.texto' | translate}}</h5>
+<div class="card-body">
+  <label *ngFor="let fPrecio of filtroPrecioRadio; let i=index" class="form-check">
+    <input name="fprecio" type="checkbox" value="{{fPrecio}}" class="form-check-label fprecio">
+    &nbsp;{{fPrecio}}
+  </label>
+</div>
+<hr>
+
+<!-- <h5>{{'categoria.texto' | translate}}</h5>
+<div class="card-body">
+  <label *ngFor="let fCategoria of filtroCategoriaRadio; let i=index" class="form-check">
+    <input name="fcategoria" type="checkbox" value="{{fCategoria}}" class="form-check-label fcategoria">
+    &nbsp;{{fCategoria + '.texto' | translate}}
+  </label>
+</div>
+<hr> -->
+
+<button class="w-100 btn btn-danger btn-filtrar" (click)="filtrarProductos()">{{'filtrar.texto' | translate}}</button>

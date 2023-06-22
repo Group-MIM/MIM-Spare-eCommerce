@@ -1,0 +1,18 @@
+<div class="card mt-4 mb-4 mr-2">
+  <div style="width: 100%">
+    <img src="{{product.imageLink}}" class="card-img-top" alt="...">
+  </div>
+  <div class="card-body">
+    <h6 class="card-title">{{product.title | slice:0:35}}</h6>
+    <p class="card-text">{{product.price | currency:'EUR':'€':'1.2-2'}} <span style="font-size:11px">
+        {{product.medida}}</span></p>
+    <div class="row">
+      <a id="btnver" class="ml-3 btn btn-danger"
+        (click)="navigateTo('/products-edit/', product.id)">{{'editar.texto' | translate}}<i
+          class="ml-2 fas fa-edit"></i></a>
+      <button (click)="deleteProduct(product.id)" class="ml-3 btn btn-danger">{{'eliminar.texto' | translate}}<i
+          class="ml-2 fas fa-trash-alt"></i>
+      </button>
+    </div>
+  </div>
+</div>

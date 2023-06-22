@@ -1,0 +1,56 @@
+#go-to-user-area, #go-to-user-area-mob{
+    border-radius: 50%;
+    height: 25px;
+    width: 25px;
+    background: #6C757D;
+    padding: 1px;
+    width: 30px;
+    height: 30px;
+}
+
+ul li:hover{
+    cursor:pointer;
+}
+
+#carrologo{
+    margin-top:5px;
+}
+
+.height-50{
+    height:80px;
+}
+
+.margin-top-18{
+    margin-top: 18px;
+}
+
+li{
+    margin-right:20px;
+    font-size: 15px;
+    text-align: center;
+}
+
+/* li:hover{
+    border-top:3px #FFC107 solid;
+} */
+
+#idioma_select{
+    color: gray;
+    margin-right: -8px;
+}
+
+#idioma_select:hover{
+    cursor: pointer;
+}
+
+li.nav-item:hover{
+    cursor:pointer;
+}
+
+#navbarTogglerDemo02, #navbarTogglerDemo02 ul, #navbarTogglerDemo02 li{
+    z-index: 1200;
+}
+
+#socket-sup{
+    z-index: 2000;
+}

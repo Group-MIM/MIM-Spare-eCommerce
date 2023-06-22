@@ -1,0 +1,26 @@
+<div id="signup-block" class="mb-5 mt-5 wrapper fadeInDown">
+  <div id="formContent">
+    <form id="formulario_reset" [formGroup]="resetPassForm" (ngSubmit)="saveData()" novalidate>
+      <input type="password" class="mt-5 fadeIn third" placeholder="{{'nueva_contrasena.texto' | translate}}"
+        formControlName="password_new">
+      <div *ngIf="resetPassForm.get('password_new').errors && resetPassForm.get('password_new').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="resetPassForm.get('password_new').hasError('required')">{{'contrasena_obligatoria.texto' | translate}}</p>
+        <p *ngIf="resetPassForm.get('password_new').hasError('minlength')">{{'contrasena_minimo.texto' | translate}}</p>
+      </div>
+      <input type="password" class="mt-3 fadeIn third" placeholder="{{'confirma_contrasena.texto' | translate}}"
+        formControlName="verify_new_password">
+      <div *ngIf="resetPassForm.get('verify_new_password').errors && resetPassForm.get('verify_new_password').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="resetPassForm.get('verify_new_password').hasError('required')">
+          {{'verificar_contrasena_obligatorio.texto' | translate}}
+        </p>
+        <p *ngIf="resetPassForm.get('verify_new_password').hasError('mustMatch')">
+          {{'no_coincide_contrasena.texto' | translate}}</p>
+      </div>
+      <input id="submit_form_signup" type="submit" class="mb-5 mt-4 mx-auto w-fourtyfive fadeIn fourth btn btn-danger"
+        value="{{'cambiar_contrasena.texto' | translate}}" [disabled]="resetPassForm.invalid">
+    </form>
+  </div>
+</div>
+<ng-reset-pass-success class="d-none" id="reset-pass-success-block"></ng-reset-pass-success>

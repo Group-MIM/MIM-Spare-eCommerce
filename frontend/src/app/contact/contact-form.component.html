@@ -1,0 +1,40 @@
+<form [formGroup]="contactForm" (ngSubmit)="saveData()" novalidate>
+  <div class="form-group">
+    <input type="email" class="form-control" formControlName="email_contact"
+      placeholder="{{'email.texto' | translate}}">
+    <div *ngIf="contactForm.get('email_contact').errors && contactForm.get('email_contact').dirty"
+      class="mx-auto w-100 alert alert-danger">
+      <p *ngIf="contactForm.get('email_contact').hasError('required')">{{'email_obligatorio.texto' | translate}}</p>
+      <p *ngIf="contactForm.get('email_contact').hasError('email')">{{'no_mail_valido.texto' | translate}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="telefono_contact"
+      placeholder="{{'telefono.texto' | translate}}">
+    <div *ngIf="contactForm.get('telefono_contact').errors && contactForm.get('telefono_contact').dirty"
+      class="mx-auto w-100 alert alert-danger">
+      <p *ngIf="contactForm.get('telefono_contact').hasError('required')">{{'telefono_obligatorio.texto' | translate}}
+      </p>
+      <p *ngIf="contactForm.get('telefono_contact').hasError('pattern')">{{'no_telefono_valido.texto' | translate}}
+    </div>
+  </div>
+  <div class="form-group">
+    <input type="text" class="form-control" formControlName="nombre_contact"
+      placeholder="{{'nombre_apellidos.texto' | translate}}">
+    <div *ngIf="contactForm.get('nombre_contact').errors && contactForm.get('nombre_contact').dirty"
+      class="mx-auto w-100 alert alert-danger">
+      <p *ngIf="contactForm.get('nombre_contact').hasError('required')">{{'nombre_obligatorio.texto' | translate}}</p>
+      <p *ngIf="contactForm.get('nombre_contact').hasError('pattern')">{{'no_nombre_valido.texto' | translate}}</p>
+    </div>
+  </div>
+  <div class="form-group">
+    <textarea class="form-control" formControlName="mensaje_contact" placeholder="{{'mensaje.texto' | translate}}"
+      rows="4"></textarea>
+    <div *ngIf="contactForm.get('mensaje_contact').errors && contactForm.get('mensaje_contact').dirty"
+      class="mx-auto w-100 alert alert-danger">
+      <p *ngIf="contactForm.get('mensaje_contact').hasError('required')">{{'mensaje_obligatorio.texto' | translate}}</p>
+    </div>
+  </div>
+  <input type="submit" class="mb-5 mt-4 mx-auto w-fourtyfive fadeIn fourth btn btn-danger"
+    value="{{'enviar.texto' | translate}}" [disabled]="contactForm.invalid">
+</form>

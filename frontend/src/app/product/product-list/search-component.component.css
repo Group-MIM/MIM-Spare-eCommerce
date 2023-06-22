@@ -1,0 +1,34 @@
+.search-btn{
+    background: #dc3545;;
+}
+
+.search-btn:hover{
+    background: #c82333;
+}
+
+#text_search, #btn-search{
+  height:35px;
+  border-radius: 0px !important;
+}
+
+textarea:focus,
+input[type="text"]:focus,
+input[type="password"]:focus,
+input[type="datetime"]:focus,
+input[type="datetime-local"]:focus,
+input[type="date"]:focus,
+input[type="month"]:focus,
+input[type="time"]:focus,
+input[type="week"]:focus,
+input[type="number"]:focus,
+input[type="email"]:focus,
+input[type="url"]:focus,
+input[type="search"]:focus,
+input[type="tel"]:focus,
+input[type="color"]:focus,
+.uneditable-input:focus {   
+  border-color: #F8C260;
+  box-shadow: 0 1px 1px #F8C260 inset, 0 0 8px #F8C260;
+  outline: 0 none;
+}
+

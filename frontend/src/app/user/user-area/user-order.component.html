@@ -1,0 +1,75 @@
+<h2 class="mt-3 mb-3">{{'mis_pedidos.texto' | translate}}</h2>
+<hr>
+
+<table class="mb-4 mt-4 table table-responsive">
+    <tr class="bg-danger text-light" style="text-align: center">
+        <th>
+            {{'numero_pedido.texto' | translate}}
+        </th>
+        <th>
+            {{'direccion_envio.texto' | translate}}
+        </th>
+        <th>
+            {{'precio_total.texto' | translate}}
+        </th>
+        <th>
+            {{'fecha_pedido.texto' | translate}}
+        </th>
+        <th *ngIf="user.role == 'admin' || user.role == 'admintrans'">
+            {{'id_cliente.texto' | translate}}
+        </th>
+        <th>
+            {{'factura.texto' | translate}}
+        </th>
+
+        <th>
+            {{'estado.texto' | translate}}
+        </th>
+    </tr>
+    <tr *ngFor="let item of array_orders | paginate: {itemsPerPage: 9, currentPage: pageActual}; let invoice"
+        style="text-align: center">
+        <td>
+            {{item['id']}}
+        </td>
+        <ng-container *ngIf="item['enviar_direccion_alternativa'] == true; else elseDireccion">
+            <td style="font-size:13px">
+                {{item['direccion_alt']}} ({{item['codigo_postal_alt']}}) {{item['municipio_alt']}}, {{item['provincia_alt']}}
+            </td>
+        </ng-container>
+        <ng-template #elseDireccion>
+            <td style="font-size:13px">
+                {{item['direccion']}} ({{item['codigo_postal']}}) {{item['municipio']}}, {{item['provincia']}}
+            </td>
+        </ng-template>
+        <td>
+            {{item['price']}}€
+        </td>
+        <td style="font-size:13px">
+            {{item['updated_at']}}
+        </td>
+        <td *ngIf="user.role == 'admin' || user.role == 'admintrans'">
+            {{item['client_id']}}
+        </td>
+        <td>
+            <i (click)="navigateTo('/invoice/', item['id'])" style="cursor:pointer;" id="ver-detalle"
+                class="far fa-file-alt"></i> </td>
+
+        <td *ngIf="user.role == 'admin' || user.role == 'admintrans'">
+            <select (change)="cambiarEstado(item['id'], $event.target.value)" class="form-control" id="sel1">
+                <option [selected]="item['estado'] == 0" value="0">{{'pendiente.texto' | translate}}</option>
+                <option [selected]="item['estado'] == 1" value="1">{{'enviado.texto' | translate}}</option>
+                <option [selected]="item['estado'] == 2" value="2">{{'entregado.texto' | translate}}</option>
+            </select>
+        </td>
+
+        <td *ngIf="user.role == 'user'">
+            <i (mouseenter)="showState($event)" (mouseleave)="showState($event)" *ngIf="item['estado'] == 0" class="fas fa-hourglass-half"><br><span class="state_text d-none">{{'pendiente.texto' | translate}}</span></i>
+            <i (mouseenter)="showState($event)" (mouseleave)="showState($event)" *ngIf="item['estado'] == 1" class="fas fa-truck"><span class="state_text d-none">{{'enviado.texto' | translate}}</span></i>
+            <i (mouseenter)="showState($event)" (mouseleave)="showState($event)" *ngIf="item['estado'] == 2" class="fas fa-check-square"><span class="state_text d-none">{{'entregado.texto' | translate}}</span></i>
+        </td>
+
+    </tr>
+</table>
+<pagination-controls style="float:right" class="mt-4 my-pagination" (pageChange)="onPageChange($event)"
+    previousLabel="{{'anterior.texto' | translate}}" nextLabel="{{'siguiente.texto' | translate}}">
+</pagination-controls>

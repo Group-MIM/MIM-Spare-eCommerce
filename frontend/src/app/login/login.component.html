@@ -1,0 +1,30 @@
+<div class="mb-5 mt-5 wrapper fadeInDown">
+  <div id="formContent">
+    <form [formGroup]="loginForm" (ngSubmit)="login()" novalidate>
+      <input (keydown)="onKeydown()" id="email" type="email" class="mt-5 fadeIn second" formControlName="email_login"
+        placeholder="{{'usuario.texto' | translate}}">
+      <div *ngIf="loginForm.get('email_login').errors && loginForm.get('email_login').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="loginForm.get('email_login').hasError('required')">{{'email_obligatorio.texto' | translate}}</p>
+        <p *ngIf="loginForm.get('email_login').hasError('email')">{{'no_mail_valido.texto' | translate}}</p>
+      </div>
+      <input (keydown)="onKeydown()" id="password" type="password" class="mt-3 fadeIn third" formControlName="password_login"
+        placeholder="{{'contrasena.texto' | translate}}">
+       <p id="error-login" class="d-none mt-3 justify-content-center" style="color:#D03634">{{'usuario_incorrecto.texto' | translate}}&nbsp;<i class="fas fa-user-slash"></i></p>
+      <div *ngIf="loginForm.get('password_login').errors && loginForm.get('password_login').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="loginForm.get('password_login').hasError('required')">{{'contrasena_obligatoria.texto' | translate}}
+        </p>
+      </div>
+      <input type="submit" class="mt-4 mx-auto w-fourtyfive fadeIn fourth btn btn-danger"
+        value="{{'identificate.texto' | translate}}" [disabled]="loginForm.invalid">
+      <br>
+      <input type="button" class="mx-auto w-fourtyfive mt-3 mb-5 fadeIn fourth btn btn-secondary"
+        value="{{'registrate.texto' | translate}}" (click)="navigateTo('/signup')">
+    </form>
+    <div id="formFooter">
+      <a (click)="navigateTo('/send-recover-pass')">{{'olvidado_password.texto' | translate}}</a>
+    </div>
+  </div>
+  <ng-signup-incomplete [emailUser]="loginForm.get('email_login').value" class="d-none" id="signup-incomplete-block"></ng-signup-incomplete>
+</div>

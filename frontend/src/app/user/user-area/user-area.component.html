@@ -1,0 +1,26 @@
+<div class="mt-5 mb-5 container">
+  <div class="row">
+    <div class="p-3 bg-light col-md-4">
+      <div class="d-flex justify-content-center">
+        <img class="mb-3 mt-2 circleBase" src="{{user.avatar}}" id="foto_avatar" />
+      </div>
+      <h2 class="pt-3">{{'hola.texto' | translate}} {{user.name}}</h2>
+      <hr class="w-100">
+      <p class="option-user-area" id="option-user-data">{{'datos_personales.texto' | translate}}</p>
+      <p class="d-none option-user-area" id="option-user-order">{{'mis_pedidos.texto' | translate}}</p>
+      <p class="d-none option-user-area" id="option-users-management">{{'gestion_usuarios.texto' | translate}}</p>
+      <p class="d-none option-user-area" id="stock-management">{{'gestion_stock.texto' | translate}}</p>
+      <!--<p class="d-none option-user-area" id="products-home">{{'productos_home.texto' | translate}}</p>-->
+      <p class="d-none option-user-area" id="categories-home">{{'categorias_principales.texto' | translate}}</p>
+      <p class="option-user-area" (click)="logout()" id="option-user-logout">{{'cerrar_sesion.texto' | translate}}</p>
+    </div>
+    <div class="p-3 bg-light col-md-8">
+      <ng-user-data id="user-data-component"></ng-user-data>
+      <ng-user-order [user]="user" id="user-order-component" class="d-none"></ng-user-order>
+      <ng-users-management id="users-management-component" class="d-none"></ng-users-management>
+      <ng-stock-management id="stock-management-component" class="d-none"></ng-stock-management>
+      <ng-products-home id="products-home-component" class="d-none"></ng-products-home>
+      <ng-categories-home id="categories-home-component" class="d-none"></ng-categories-home>
+    </div>
+  </div>
+</div>

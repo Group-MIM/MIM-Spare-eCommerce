@@ -1,0 +1,41 @@
+<div id="signup-block" class="mb-5 mt-5 wrapper fadeInDown">
+  <div id="formContent">
+    <form [formGroup]="signupForm" (ngSubmit)="saveData()" novalidate>
+      <input type="email" class="mt-5 fadeIn second" placeholder="{{'email.texto' | translate}}"
+        formControlName="email_signup">
+      <div *ngIf="signupForm.get('email_signup').errors && signupForm.get('email_signup').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="signupForm.get('email_signup').hasError('required')">{{'email_obligatorio.texto' | translate}}</p>
+        <p *ngIf="signupForm.get('email_signup').hasError('email')">{{'no_mail_valido.texto' | translate}}</p>
+      </div>
+      <input type="text" class="mt-3 fadeIn second" placeholder="{{'nombre_apellidos.texto' | translate}}"
+        formControlName="name_signup">
+      <div *ngIf="signupForm.get('name_signup').errors && signupForm.get('name_signup').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="signupForm.get('name_signup').hasError('required')">{{'nombre_obligatorio.texto' | translate}}</p>
+        <p *ngIf="signupForm.get('name_signup').hasError('pattern')">{{'no_nombre_valido.texto' | translate}}</p>
+      </div>
+      <input type="password" class="mt-3 fadeIn third" placeholder="{{'contrasena.texto' | translate}}"
+        formControlName="password_signup">
+      <div *ngIf="signupForm.get('password_signup').errors && signupForm.get('password_signup').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="signupForm.get('password_signup').hasError('required')">{{'contrasena_obligatoria.texto' | translate}}</p>
+        <p *ngIf="signupForm.get('password_signup').hasError('minlength')">{{'contrasena_minimo.texto' | translate}}</p>
+      </div>
+      <input type="password" class="mt-3 fadeIn third" placeholder="{{'confirma_contrasena.texto' | translate}}"
+        formControlName="verifypassword">
+      <div *ngIf="signupForm.get('verifypassword').errors && signupForm.get('verifypassword').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="signupForm.get('verifypassword').hasError('required')">
+          {{'verificar_contrasena_obligatorio.texto' | translate}}
+        </p>
+        <p *ngIf="signupForm.get('verifypassword').hasError('mustMatch')">
+          {{'no_coincide_contrasena.texto' | translate}}</p>
+      </div>
+      <input id="submit_form_signup" type="submit" class="mb-5 mt-4 mx-auto w-fourtyfive fadeIn fourth btn btn-danger"
+        value="{{'completar_registro.texto' | translate}}" [disabled]="signupForm.invalid">
+    </form>
+  </div>
+</div>
+<ng-signup-success class="d-none" id="signup-success-block"></ng-signup-success>
+<ng-signup-error class="d-none" id="signup-error-block"></ng-signup-error>

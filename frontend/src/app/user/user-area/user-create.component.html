@@ -1,0 +1,98 @@
+<div class="d-flex justify-content-center">
+  <div class="mb-5 mt-5 col-md-6">
+    <form [formGroup]="userAreaForm" (ngSubmit)="saveData()" novalidate>
+      <h2 class="">{{'nuevo_usuario.texto' | translate}}</h2>
+      <hr>
+      <p>{{'nombre.texto' | translate}}: <input id="name_user_area" formControlName="name_user_area"
+          class="form-control" type="text" value="{{user.name}}"></p>
+      <div *ngIf="userAreaForm.get('name_user_area').errors && userAreaForm.get('name_user_area').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="userAreaForm.get('name_user_area').hasError('required')">{{'nombre_obligatorio.texto' | translate}}
+        </p>
+        <p *ngIf="userAreaForm.get('name_user_area').hasError('pattern')">{{'no_nombre_valido.texto' | translate}}</p>
+      </div>
+      <p>{{'email.texto' | translate}}: <input id="email_user_area" class="form-control" type="email"
+          value="{{user.email}}"></p>
+
+      <p>{{'telefono.texto' | translate}}: <input id="telefono_user_area" formControlName="telefono_user_area"
+          class="form-control" type="text" value="{{user.telefono}}"></p>
+      <div *ngIf="userAreaForm.get('telefono_user_area').errors && userAreaForm.get('telefono_user_area').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="userAreaForm.get('telefono_user_area').hasError('pattern')">
+          {{'no_telefono_valido.texto' | translate}}
+        </p>
+      </div>
+      <h2 class="mt-3 mb-3">{{'datos_envio_alternativo.texto' | translate}}</h2>
+      <hr>
+      <p>{{'pais.texto' | translate}}:
+          <br>
+          <select (change)="changePais()" id="pais_user_area" class="form-control">
+              <option [selected]="user.pais_alt == country.name" *ngFor="let country of countries | async" class="{{country.code}}">{{country.name}}</option>
+          </select>
+  <p>{{'provincia.texto' | translate}}:
+      <br>
+      <select (change)="changeRegion()" id="provincia_user_area" class="form-control">
+          <option [selected]="user.provincia_alt == region.name" *ngFor="let region of regions | async" class="{{region.id}}">{{region.name}}</option>
+      </select>
+      <p>{{'municipio.texto' | translate}}: <br>
+          <select id="municipio_user_area" class="form-control">
+              <option id="first_option">{{user.municipio_alt}}</option>
+              <option [selected]="user.municipio_alt == city.name" *ngFor="let city of cities | async">{{city.name}}</option>
+          </select>
+
+      <p>{{'direccion.texto' | translate}}: <input id="direccion_user_area" class="form-control" type="text"
+          value="{{user.direccion_alt}}"></p>
+
+      <p>{{'codigo_postal.texto' | translate}}: <input id="codigo_postal_user_area"
+          formControlName="codigo_postal_user_area" class="form-control" type="text" value="{{user.codigo_postal_alt}}">
+      </p>
+      <div
+        *ngIf="userAreaForm.get('codigo_postal_user_area').errors && userAreaForm.get('codigo_postal_user_area').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="userAreaForm.get('codigo_postal_user_area').hasError('pattern')">
+          {{'codigo_postal_no_valido.texto' | translate}}
+        </p>
+      </div>
+      <h2 class="mt-3 mb-3">{{'rol_usuario.texto' | translate}}</h2>
+      <hr>
+      <select id="role_user_area" class="form-control">
+        <option [selected]="user.role == 'user'" value="user">Usuario</option>
+        <option [selected]="user.role == 'admin'" value="admin">Local Admin</option>
+        <option [selected]="user.role == 'adminges'" value="adminges">Local Admin Gestion</option>
+        <option [selected]="user.role == 'admintrans'" value="admintrans">Local Admin Transportista</option>
+      </select>
+
+      <h2 class="mt-3 mb-3">{{'contrasena.texto' | translate}}</h2>
+      <hr>
+      <p>{{'contrasena.texto' | translate}}: <input id="password_user_area" formControlName="password_user_area"
+          class="form-control" type="password" value="{{user.password}}"></p>
+      <div *ngIf="userAreaForm.get('password_user_area').errors && userAreaForm.get('password_user_area').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="userAreaForm.get('password_user_area').hasError('required')">
+          {{'contrasena_obligatoria.texto' | translate}}
+        </p>
+        <p *ngIf="userAreaForm.get('password_user_area').hasError('minlength')">
+          {{'contrasena_minimo.texto' | translate}}</p>
+      </div>
+      <p>{{'confirma_contrasena.texto' | translate}}: <input formControlName="verifypassword_user_area"
+          class="form-control" type="password" value="{{user.password}}"></p>
+      <div
+        *ngIf="userAreaForm.get('verifypassword_user_area').errors && userAreaForm.get('verifypassword_user_area').dirty"
+        class="mx-auto w-eightyfive alert alert-danger">
+        <p *ngIf="userAreaForm.get('verifypassword_user_area').hasError('required')">
+          {{'verificar_contrasena_obligatorio.texto' | translate}}
+        </p>
+        <p *ngIf="userAreaForm.get('verifypassword_user_area').hasError('mustMatch')">
+          {{'no_coincide_contrasena.texto' | translate}}</p>
+      </div><br>
+      <input id="submit_form_user_area" type="submit" class="float-right mb-5 mt-4 mx-auto btn btn-danger"
+        value="{{'anadir_nuevo.texto' | translate }}">
+    </form>
+    <div id="toast">
+      {{'usuario_anadido.texto' | translate}}&nbsp;<i class="fas fa-user-check"></i>
+    </div>
+    <div id="toast_error">
+      {{'usuario_anadido_error.texto' | translate}}&nbsp;<i class="fas fa-user-slash"></i>
+    </div>
+  </div>
+</div>

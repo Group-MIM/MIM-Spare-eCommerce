@@ -1,0 +1,26 @@
+<div class="col-md-12">
+  <div class="">
+    <h4>{{'producto.texto' |translate}} 1</h4>
+    <select class="form-control" id="prod1select">
+      <option *ngFor="let producto of products | async" value="{{producto.id}}">{{producto.title}}</option>
+    </select><br>
+    <input type="button" (click)="save1()" class="btn btn-danger" value="{{'guardar_cambios.texto' | translate}}">
+  </div>
+  <br>
+  <div class="">
+    <h4>{{'producto.texto' |translate}} 2</h4>
+    <select class="form-control" id="prod2select">
+      <option *ngFor="let producto of products | async" value="{{producto.id}}">{{producto.title}}</option>
+    </select><br>
+    <input type="button" (click)="save2()" class="btn btn-danger" value="{{'guardar_cambios.texto' | translate}}">
+  </div>
+  <br>
+  <div class="">
+    <h4>{{'producto.texto' |translate}} 3</h4>
+    <select class="form-control" id="prod3select">
+      <option *ngFor="let producto of products | async" value="{{producto.id}}">{{producto.title}}</option>
+    </select><br>
+    <input type="button" (click)="save3()" class="btn btn-danger" value="{{'guardar_cambios.texto' | translate}}">
+  </div>
+
+</div>

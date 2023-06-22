@@ -1,0 +1,15 @@
+.flag_translate{
+    width:20px;
+}
+
+.flag_translate:hover{
+    cursor:pointer;
+}
+
+.box-style{
+    position: absolute;
+    background: #F8F9FA;
+    padding: 15px;
+    margin-left: -97px;
+}
+

@@ -1,0 +1,25 @@
+footer{
+    height: 33vh;
+    bottom: 0px;
+    left: 0px;
+    box-shadow: 0 -5px 5px -5px #9e9b9b3d;
+    z-index:999;
+    font-size: 13px;
+    margin-top:10vh !important;
+}
+
+*{
+    color: #FFF;
+}
+
+.socket{
+    background: #282B2E !important;
+    position: absolute;
+    padding-top: 15px;
+    font-size:13px;
+}
+
+a:hover{
+    color: #E43C40;
+    cursor:pointer;
+}

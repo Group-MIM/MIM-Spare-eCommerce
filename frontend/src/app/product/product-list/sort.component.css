@@ -1,0 +1,7 @@
+.dropdown-item:hover{
+    cursor: pointer;
+}
+#dropdownMenuButton{
+    height:35px;
+    border-radius: 0px !important;
+}

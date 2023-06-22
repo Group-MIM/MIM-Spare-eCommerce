@@ -1,0 +1,79 @@
+<div class="container">
+    <div class="mt-5 row">
+
+        <div class="col-md-6">
+            <div class="imagenFullDiv">
+                <img class="imagenFull" src="{{product.imageLink}}" alt="">
+            </div>
+        </div>
+
+        <div style="border: none !important;" class="card col-md-6">
+            <div style="border: none !important;" class="card-header">
+                <h2>{{product.title}}</h2>
+            </div>
+            <ul class="list-group list-group-flush">
+                <li class="list-group-item">
+                    {{product.description}}
+                </li>
+                <li class="list-group-item">
+                    <h4>{{product.price | currency:'EUR':'€':'1.2-2'}}</h4>
+                </li>
+                <li class="list-group-item" style="font-size:13px;">
+                    <b><a href="{{product.tech_sheet}}">{{'ficha_tecnica.texto' | translate}}</a></b>&nbsp;&nbsp;<i class="far fa-file-alt"></i><br>
+                    <b>{{'categoria.texto' | translate}}:</b> {{product.category}}<br>
+                    <b>{{'origen.texto' | translate}}:</b> {{product.madeIn}}
+                </li>
+                <li class="list-group-item">
+                    <button [disabled]="isButtonDisabled(quantity)" class="btn btn-danger"
+                        (click)="quantity=quantity-1"><i class="fas fa-minus"></i></button>
+                    <ng-container *ngIf="quantity>=0; else elseTemplate">
+                        <span class="mr-2 ml-2 align-self-center">{{quantity}}</span>
+                    </ng-container>
+                    <ng-template #elseTemplate>
+                        <span class="mr-2 ml-2 align-self-center">{{quantityReset()}}</span>
+                    </ng-template>
+                    <button class="mr-2 btn btn-danger" (click)="addQuantity()"><i
+                            class="fas fa-plus"></i></button><br>
+                    <!-- <ng-container *ngIf="login == true; else elseTemplate"> -->
+                        <button class="mt-4 mb-4 btn btn-danger" (click)="addProducts(quantity)">
+                            {{'anadir_carro.texto' | translate}}
+                            <i class="ml-2 fas fa-cart-plus"></i>
+
+                        </button>
+                    <!-- </ng-container>
+                    <ng-template #elseTemplate>
+                        <button class="mt-4 mb-4 btn btn-danger" (click)="toastNoLogin()">
+                            {{'anadir_carro.texto' | translate}}
+                            <i class="ml-2 fas fa-cart-plus"></i>
+
+                        </button>
+
+
+                    </ng-template> -->
+
+
+
+
+                </li>
+            </ul>
+        </div>
+
+
+    </div>
+    <div id="toast" class="d-none">
+        {{'anadido_carro.texto' | translate}}&nbsp;
+        <i id="carrologo" class="fas fa-shopping-cart"></i>
+    </div>
+    <div class="d-none" id="toast-user">
+        {{'necesitas_registro.texto' | translate}}&nbsp;
+        <i id="no-user-logo" class="fas fa-user-plus"></i><br>
+        <a style="color:white" href="#" id="btnver" class="btn btn-link" (click)="navigateTo('/login')">
+            {{'identificate.texto' | translate}}
+        </a>
+        &nbsp;|&nbsp;
+        <a style="color:white" href="#" id="btnver" class="btn btn-link" (click)="navigateTo('/signup/')">
+            {{'registrate.texto' | translate}}
+        </a>
+    </div>
+
+</div>

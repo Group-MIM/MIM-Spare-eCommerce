@@ -1,0 +1,16 @@
+.state_text{
+    display: inherit;
+    color: #484949;
+    margin-top: 5px;
+    font-size: 11px;
+}
+
+ :host /deep/ .ngx-pagination .current { 
+    background: #212529 !important; 
+    color: #e73c41;
+}
+
+.form-control:focus{
+    border-color: #ced4da !important;
+    box-shadow: 0 0 0 0 rgba(0,123,255,.25) !important;
+}

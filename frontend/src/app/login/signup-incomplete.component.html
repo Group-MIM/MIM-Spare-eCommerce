@@ -1,0 +1,10 @@
+<div class="d-flex justify-content-center mt-5 mb-5 container">
+  <div style="display: inline-block; text-align: center">
+    <p>{{'usuario_no_activado_1.texto' | translate}}</p>
+    <p>{{'usuario_no_activado_2.texto' | translate}}</p>
+    <button (click)="enviarMail()" class="btn btn-link">{{'volver_enviar.texto' | translate}}</button>
+  </div>
+  <div id="toast_incomplete" class="d-flex justify-content-center">
+    {{'email_enviado.texto' | translate}}&nbsp;&nbsp;<i class="far fa-envelope"></i>
+  </div>
+</div>

@@ -1,0 +1,50 @@
+<div class="col-md-12">
+  <div class="">
+    <h4>{{'categoria.texto' |translate}} 1</h4>
+    <select class="form-control" id="cat1select">
+      <option *ngFor="let categoria of categories | async" value="{{categoria.id}}">{{categoria.name}}</option>
+    </select><br>
+    <input type="button" (click)="save1()" class="btn btn-danger" value="{{'guardar_cambios.texto' | translate}}">
+  </div>
+  <br>
+  <div class="">
+    <h4>{{'categoria.texto' |translate}} 2</h4>
+    <select class="form-control" id="cat2select">
+      <option *ngFor="let categoria of categories | async" value="{{categoria.id}}">{{categoria.name}}</option>
+    </select><br>
+    <input type="button" (click)="save2()" class="btn btn-danger" value="{{'guardar_cambios.texto' | translate}}">
+  </div>
+  <br>
+  <div class="">
+    <h4>{{'categoria.texto' |translate}} 3</h4>
+    <select class="form-control" id="cat3select">
+      <option *ngFor="let categoria of categories | async" value="{{categoria.id}}">{{categoria.name}}</option>
+    </select><br>
+    <input type="button" (click)="save3()" class="btn btn-danger" value="{{'guardar_cambios.texto' | translate}}">
+  </div>
+  <br>
+  <div class="">
+    <h4>{{'categoria.texto' |translate}} 4</h4>
+    <select class="form-control" id="cat4select">
+      <option *ngFor="let categoria of categories | async" value="{{categoria.id}}">{{categoria.name}}</option>
+    </select><br>
+    <input type="button" (click)="save4()" class="btn btn-danger" value="{{'guardar_cambios.texto' | translate}}">
+  </div>
+  <br>
+  <div class="">
+    <h4>{{'categoria.texto' |translate}} 5</h4>
+    <select class="form-control" id="cat5select">
+      <option *ngFor="let categoria of categories | async" value="{{categoria.id}}">{{categoria.name}}</option>
+    </select><br>
+    <input type="button" (click)="save5()" class="btn btn-danger" value="{{'guardar_cambios.texto' | translate}}">
+  </div>
+  <br>
+  <div class="">
+    <h4>{{'categoria.texto' |translate}} 6</h4>
+    <select class="form-control" id="cat6select">
+      <option *ngFor="let categoria of categories | async" value="{{categoria.id}}">{{categoria.name}}</option>
+    </select><br>
+    <input type="button" (click)="save6()" class="btn btn-danger" value="{{'guardar_cambios.texto' | translate}}">
+  </div>
+
+</div>

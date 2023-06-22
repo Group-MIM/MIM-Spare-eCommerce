@@ -1,0 +1,20 @@
+#foto_avatar{
+    width: 200px;
+    height: 200px;
+    background: #484949;
+}
+
+.circleBase {
+    border-radius: 50%;
+    box-shadow: 2px 2px 20px black;
+}
+
+.option-user-area{
+    color: #858586;
+}
+
+.option-user-area:hover{
+    cursor: pointer;
+    color:#484949;
+}
+

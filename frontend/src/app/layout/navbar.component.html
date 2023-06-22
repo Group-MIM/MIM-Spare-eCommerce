@@ -1,0 +1,104 @@
+<div id="socket-sup" class="d-flex justify-content-between w-100 bg-dark text-light">
+  <div style="z-index:2000" class="container">
+    <span class="mt-1" style="float:left">
+      <a href="tel:+34935806034" class="text-white"><i class="fas fa-phone"></i>&nbsp;&nbsp;(+34) 935 806 034</a>
+      &nbsp;&nbsp;|&nbsp;&nbsp;
+      <a href="mailto:info@mimspare.com" class="text-white"> <i class="fas fa-envelope"></i>&nbsp;&nbsp;info@mimspare.com</a>
+    </span>
+    <span style="float:right">
+      <i id="idioma_select" class="fas fa-language fa-2x text-white"></i>
+      <ng-translation></ng-translation>
+
+    </span>
+
+  </div>
+</div>
+
+<nav (window:resize)="onResize($event)" class="shadow sticky-top navbar navbar-expand-lg navbar-light bg-light">
+  <!--logo-->
+  <a class="d-block d-lg-none navbar-brand" (click)="navigateTo('/home','-')">
+    <img class="logo-nav" style="width: 120px" src="assets/img/logo.png">
+  </a>
+
+  <!--carrito y login-->
+  <div id="mob_user_cart" style="display: contents" class="d-none navbar-nav">
+    <span routerLinkActive="active" class="nav-item">
+      <a id="login-navbar-mob" class="nav-link" (click)="navigateTo('/login','-')">
+        <i class="mt-2 fas fa-sign-in-alt"></i>
+      </a>
+      <a id="user-area-navbar-mob" class="d-none nav-link" (click)="navigateTo('/user-area','-')"><img
+          src="{{user.avatar}}" id="go-to-user-area-mob"></a>
+    </span>
+    <span id="zona-derecha">
+      <ng-container *ngIf="user.role == 'admin' || user.role == 'adminges'; else elseMobileTemplate">
+        <a class="nav-link" (click)="navigateTo('/products-create','-')"><i id="carrologo"
+            class="fas fa-plus-square">&nbsp;
+          </i><span>{{'nuevo_producto.texto' | translate}}</span></a>
+      </ng-container>
+      <ng-template #elseMobileTemplate>
+        <form id="carritocompra" class="form-inline mt-lg-0">
+          <a class="nav-link" (click)="navigateTo('/cart','-')">
+            <i id="carrologo" class="mt-2 fas fa-shopping-cart">&nbsp;<span
+                id="preciocarro-mob">0.00</span>&nbsp;€</i></a>
+        </form>
+      </ng-template>
+    </span>
+  </div>
+
+  <!--menu hamburguesa-->
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarTogglerDemo02"
+    aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <!--elementos-->
+  <div class="justify-content-between collapse navbar-collapse" id="navbarTogglerDemo02">
+    <ul id="navbar-izq" class="align-items-center navbar-nav mt-2 mt-lg-0">
+      <li class="d-none d-lg-block mx-2">
+        <a (click)="navigateTo('/home', '-')">
+          <img style="width: 220px" src="assets/img/logo.png">
+        </a>
+      </li>
+      <li id="labotiga" routerLinkActive="active" class="nav-item mx-3">
+        <a class="nav-link" (click)="navigateTo('/products','-')">{{'productos.texto' | translate}}</a>
+      </li>
+      <li id="labotiga" routerLinkActive="active" class="nav-item mx-3">
+        <a class="nav-link" (click)="navigateTo('/services', '-')">{{'servicios.texto' | translate}}</a>
+      </li>
+      <li id="labotiga" routerLinkActive="active" class="nav-item mx-3">
+        <a class="nav-link" (click)="navigateTo('/contact','-')">{{'contacto.texto' | translate}}</a>
+      </li>
+      <li id="labotiga" routerLinkActive="active" class="nav-item mx-3">
+          <a class="nav-link" (click)="navigateTo('/about','-')">{{'sobre_nosotros.texto' | translate}}</a>
+        </li>
+
+    </ul>
+    <ul class="navbar-nav">
+
+
+      <li id="desk_user" routerLinkActive="active" class="mr-0 bg-dark nav-item ">
+        <a id="login-navbar" class="nav-link" (click)="navigateTo('/login', '-')">
+          <i class="text-light fas fa-sign-in-alt"></i></a>
+        <a id="user-area-navbar" class="d-none nav-link" (click)="navigateTo('/user-area', '-')">
+          <img src="{{user.avatar}}" id="go-to-user-area"></a>
+      </li>
+
+      <li id="desk_cart mx-3" class="bg-secondary">
+        <ng-container *ngIf="user.role == 'admin' || user.role == 'adminges'; else elseTemplate">
+          <a class="nav-link mt-1" (click)="navigateTo('/products-create', '-')">
+            <i id="carrologo" class="text-light fas fa-plus-square">&nbsp;
+            </i><span class="text-light">{{'nuevo_producto.texto' | translate}}</span></a>
+        </ng-container>
+        <ng-template #elseTemplate>
+          <form id="carritocompra" class="d-none d-lg-block form-inline mt-2 mt-lg-0">
+            <a class="nav-link" (click)="navigateTo('/cart', '-')">
+              <i id="carrologo" class="text-light fas fa-shopping-cart">&nbsp;&nbsp;<span
+                  id="preciocarro">0.00</span>&nbsp;€</i></a>
+          </form>
+        </ng-template>
+
+
+      </li>
+    </ul>
+  </div>
+</nav>

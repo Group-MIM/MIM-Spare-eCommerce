@@ -1,0 +1,40 @@
+<footer (window:resize)="onResize($event)" class="bg-dark border-top footer pt-3">
+  <div class="pt-3 container">
+    <p id="webs">
+      <a href="https://mim-maintenance.com" rel="noopener noreferrer" target="_blank"
+        data-mce-href="https://mim-maintenance.com">Group MIM Corporation</a><br>
+      <a href="https://www.group-mim.com" rel="noopener noreferrer" target="_blank"
+        data-mce-href="https://mim-maintenance.com">MIM Maintenance</a><br>
+      <a href="https://mimetall.com" rel="noopener noreferrer" target="_blank"
+        data-mce-href="https://mimetall.com">MIM Metall</a><br>
+      <a href="https://mimpatchworkservice.cat" rel="noopener noreferrer" target="_blank"
+        data-mce-href="https://mimpatchworkservice.cat">MIM Patchworkservice</a><br>
+      <a href="https://mim-net.com" rel="noopener noreferrer" target="_blank" data-mce-href="https://mim-net.com">MIM
+        Net</a><br>
+      <a href="http://mimadministration.com" rel="noopener noreferrer" target="_blank"
+        data-mce-href="http://mimadministration.com">MIM Administration</a><br>
+      <a href="https://mimplasticsolutions.com" rel="noopener noreferrer" target="_blank"
+        data-mce-href="https://mimplasticsolutions.com">MIM Plasticsolutions</a><br>
+      <a href="http://mimspare.cat" rel="noopener noreferrer" target="_blank" data-mce-href="http://mimspare.cat">MIM
+        Spare</a>
+    </p>
+ 
+
+  </div>
+</footer>
+<div class="socket w-100">
+  <div class="container">
+    <span class="float-left text-muted">
+      <p>© 2020, MIM Spare</p>
+    
+    </span>
+    <span class="politicas float-right text-muted">
+      <p>
+        <a (click)="navigateTo('/politica-de-entregas')">{{'politica_entregas.texto' | translate}}</a>&nbsp;|&nbsp;
+        <a (click)="navigateTo('/politica-de-cookies')">{{'politica_cookies.texto' | translate}}</a>&nbsp;|&nbsp;
+        <a (click)="navigateTo('/politica-de-privacidad')">{{'politica_privacidad.texto' | translate}}</a>
+      </p>
+    </span>
+  </div>
+  
+</div>

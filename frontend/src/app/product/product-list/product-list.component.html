@@ -1,0 +1,62 @@
+<div (window:resize)="onResize($event)" class="mt-4 pr-5 pl-5">
+  <div>
+    <div class="row justify-content-end">
+      <div class="mt-4 mb-4 col-md-10 d-flex justify-content-between">
+        <ng-sort [productsSort]="products" (ordenacion)="recibirOrdenacion($event)"></ng-sort>
+        <ng-search-component (palabraBuscar)="recibirBusqueda($event)"></ng-search-component>
+      </div>
+    </div>
+    <div class="row justify-content-center">
+        <button class="w-100 d-none btn-filtro ml-3 mr-3 btn btn-danger">{{'filtros.texto' | translate }} 
+            <i class="fas fa-filter"></i>
+          </button>
+    </div>
+    <div class="row">
+      <div class="filtros-container col-md-2 mt-4">
+        <ng-filter [productsAll]="products" (arrayFiltros)="recibirFiltros($event)"></ng-filter>
+      </div>
+      <div class="col">
+
+        <ng-container *ngIf="cantidadProductos > 0; else elseTemplate">
+          <div class="container-gallery row d-flex justify-content-start bd-highlight mb-3" style="margin:0 auto">
+            <ng-container *ngIf="user.role == 'admin' || user.role == 'adminges'; else elseTemplate">
+              <ng-products-crud
+                *ngFor="let product of products | async | paginate: {itemsPerPage: 28, currentPage: pageActual}"
+                [product]="product">
+              </ng-products-crud>
+            </ng-container>
+            <ng-template #elseTemplate>
+              <ng-gallery-product
+                *ngFor="let product of products | async | paginate: {itemsPerPage: 28, currentPage: pageActual}"
+                [product]="product">
+              </ng-gallery-product>
+            </ng-template>
+
+          </div>
+          <div class="mt-4 d-flex justify-content-end">
+            <pagination-controls class="my-pagination" (pageChange)="onPageChange($event)"
+              previousLabel="{{'anterior.texto' | translate}}" nextLabel="{{'siguiente.texto' | translate}}">
+            </pagination-controls>
+          </div>
+
+        </ng-container>
+        <ng-template #elseTemplate>
+          <div class="mt-4 mx-auto alert alert-danger" style="margin:0 auto">
+            <h3 class="error">{{'no_resultados.texto' | translate}}<br>{{'restablece_filtros.texto' | translate}}</h3>
+          </div>
+        </ng-template>
+      </div>
+    </div>
+  </div>
+  <div class="d-none" id="toast-user">
+    {{'necesitas_registro.texto' | translate}}&nbsp;
+    <i id="no-user-logo" class="fas fa-user-plus"></i><br>
+    <a style="cursor:pointer;color:white" id="btnver" class="btn btn-link" (click)="navigateTo('/login')">
+      {{'identificate.texto' | translate}}
+    </a>
+    &nbsp;|&nbsp;
+    <a style="cursor:pointer;color:white" id="btnver" class="btn btn-link" (click)="navigateTo('/signup')">
+      {{'registrate.texto' | translate}}
+    </a>
+  </div>
+</div>

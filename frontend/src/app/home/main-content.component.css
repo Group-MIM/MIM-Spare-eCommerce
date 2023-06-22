@@ -1,0 +1,26 @@
+a{
+    color:#777777;
+    text-decoration: none;
+}
+
+#prod-home-1-precio, #prod-home-2-precio, #prod-home-3-precio{
+    text-align: center;
+}
+
+/* #prod-home-1, #prod-home-2, #prod-home-3{
+    margin-top: 50px;
+} */
+
+#prod-home-1-precio h4, #prod-home-2-precio h4, #prod-home-3-precio h4{
+    font-size:18px;
+    
+}
+
+#linkcontacta:hover{
+    color: #E43C40;
+    cursor: pointer;
+}
+
+.cat-home:hover{
+    background: #F8F9FA;
+}

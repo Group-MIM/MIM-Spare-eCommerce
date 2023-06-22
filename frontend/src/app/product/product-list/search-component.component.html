@@ -1,0 +1,8 @@
+<div class="input-group">
+
+  <input (keydown)="onKeydown($event)" type="text" id="text_search" class="form-control" style="margin-left:10px"
+    placeholder="{{'buscar.texto' | translate}}">
+  <div class="input-group-append">
+    <button (click)="search()" id="btn-search" class="search-btn input-group-text"><i class="text-light fas fa-search"></i></button>
+  </div>
+</div>
